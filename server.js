@@ -10,6 +10,12 @@ var db = new TransactionDatabase(new sqlite3.Database('./Jeopardy.db'));
 //Use bodyParser to read request body data
 app.use( bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 //Auth Middleware
 function authMiddleware(req,res,next) {

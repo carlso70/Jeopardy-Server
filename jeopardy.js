@@ -30,9 +30,6 @@ $(document).ready(function(){
         var catTitle = $("#lg_catTitle").val();
         if (catTitle && catTitle.length > 0)
             payload.categoryTitle = catTitle;
-        var dolValue = $("#lg_dollarValue").val();
-        if (dolValue && dolValue.length > 0)
-            payload.dollarValue = dolValue;
         var quesTxt = $("#lg_quesTxt").val();
         if (quesTxt && quesTxt.length > 0)
             payload.questionText = quesTxt;

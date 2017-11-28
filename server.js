@@ -20,7 +20,8 @@ app.use(function(req, res, next) {
 //Auth Middleware
 function authMiddleware(req,res,next) {
 	//Make sure a token was given
-	if(!req.query.auth) {
+	  if(!req.query.auth) {
+        console.log("unauthorized access");
 		//The user did not pass a token at all, show an error
 		return res.status(400).json({message: "unauthorized access"});
 	}

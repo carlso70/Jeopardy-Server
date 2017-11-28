@@ -59,36 +59,15 @@ $(document).ready(function(){
         console.log(url)
         fetch(url , {
             method: "GET",
-            headers: {
-                'Accept':'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
         }).then(function(res){ return res.json(); })
             .then(function(data){
-                if (data.authToken) {
-                    console.log(JSON.stringify(data));
-                }else {
-                    alert("ERROR SIGNING IN");
+                if (data) {
+                    var $table = $("#table");
+                    $(function() {
+                        $("#table").bootstrapTable("destroy");
+                        $("#table").bootstrapTable({data: data});
+                    });
                 }
             });
-    });
-
-    var $table = $("#table");
-    var mydata = [{
-        "showNumber": 1,
-        "airDate": "2014",
-        "dollarValue": "2014",
-        "questionText": "2014",
-        "answerText": "2014",
-        "questionID": "2014",
-        "categoryCode": "2014",
-        "categoryTitle": "2014",
-    }]
-
-
-    $(function() {
-        $("#table").bootstrapTable({
-            data: mydata
-        });
     });
 });

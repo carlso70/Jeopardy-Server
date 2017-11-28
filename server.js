@@ -99,6 +99,7 @@ app.post('/questionadd',authMiddleware, function(req, res) {
 
 	//First, we'll validate the request data to make sure all the params were provided
 
+    console.log(req.body);
 	//Make sure the air date was provided
 	if(!req.body.airDate) {
 		return res.status(400).json({message: "Missing airDate"});

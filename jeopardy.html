@@ -30,11 +30,13 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">CS390 Jeopardy</a>
+                <button type="button" class="btn btn-default btn-large" data-toggle="modal" data-target="#addModal">Add New</button>
                 <button type="button" class="btn btn-default btn-large" data-toggle="modal" data-target="#signInModal">Sign in</button>
+
             </div>
         </nav>
 
-        <!-- Modal -->
+        <!-- Sign In Modal -->
         <div id="signInModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -57,6 +59,41 @@
             </div>
         </div>
 
+        <!-- New Question Modal -->
+        <div id="addModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="add_date" placeholder="Air Date">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="add_showNumber" placeholder="Show Number">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="add_dollarValue" placeholder="Dollar Value">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="add_questionText" placeholder="Question Text">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="add_answerText" placeholder="Answer Text">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="add_categoryCode" placeholder="Category Code">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="add_categoryTitle" placeholder="Category Title">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btnAdd" class="btn btn-default" data-dismiss="modal">Add New</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Page Content -->
         <div class="container">
             <div class="row">

@@ -67,4 +67,49 @@ $(document).ready(function(){
                 }
             });
     });
+
+    $("#btnAdd").click(function() {
+        var payload = {};
+        var catCode = $("#add_categoryCode").val();
+        if (catCode)
+            payload.categoryCode = catCode;
+        var catTitle = $("#add_categoryTitle").val();
+        if (catTitle && catTitle.length > 0)
+            payload.categoryTitle = catTitle;
+        var quesTxt = $("#add_questionText").val();
+        if (quesTxt && quesTxt.length > 0)
+            payload.questionText = quesTxt;
+        var ansTxt = $("#add_answerText").val();
+        if (ansTxt && ansTxt.length > 0)
+            payload.answerText = ansTxt;
+        var showNum = $("#add_showNumber").val();
+        if (showNum)
+            payload.showNumber = showNum;
+        var airDate = $("#add_date").val();
+        if (airDate)
+            payload.airDate = airDate;
+        var dollarVal = $("#add_dollarValue").val();
+        if (dollarVal)
+            payload.dollarValue = dollarVal;
+
+        console.log(payload)
+
+        var token = localStorage.getItem("token");
+
+        var url = "http://localhost:8000/questionadd?auth="+token;
+        fetch(url , {
+            method: "POST",
+            headers: {
+                'Accept':'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        }).then(function(res){ return res.json(); })
+            .then(function(data){
+                console.log(data)
+                if (data.message) {
+                    alert(data.message)
+                }
+            });
+    });
 });
